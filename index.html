@@ -3,9 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JEM Design | Photography & Video Services</title>
-  <meta name="description" content="Premium photography and video services for brands, cars, properties and social-first content. Contact JEM Design today." />
+  <title>JEM Design | UK Photography, Video & Social Content</title>
+  <meta name="description" content="Book JEM Design for premium UK photography, video shoots, car content, property visuals and social-first edits for brands, creators and businesses." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#11100d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JEM Design" />
+  <meta property="og:title" content="JEM Design | UK Photography, Video & Social Content" />
+  <meta property="og:description" content="Premium photography, video, car content, property visuals and social-first edits for UK brands, creators and businesses." />
+  <meta property="og:image" content="assets/jem-design-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="JEM Design | UK Photography, Video & Social Content" />
+  <meta name="twitter:description" content="Premium UK photography, video shoots and social-first content for brands, creators and businesses." />
   <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "JEM Design",
+      "description": "UK photography, video production, automotive content, property visuals and social-first media services.",
+      "image": "assets/jem-design-logo.png",
+      "telephone": "+447960629992",
+      "areaServed": "United Kingdom",
+      "sameAs": [
+        "https://wa.me/447960629992"
+      ],
+      "serviceType": [
+        "Photography",
+        "Video production",
+        "Automotive content",
+        "Property visuals",
+        "Social media content"
+      ]
+    }
+  </script>
   <style>
     :root {
       --ink: #11100d;
@@ -442,10 +473,23 @@
     .footer-note {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
       padding: 0 0 26px;
       color: rgba(255, 250, 241, 0.48);
       font-size: 0.82rem;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 250, 241, 0.72);
+      font-weight: 750;
     }
 
     .whatsapp-float {
@@ -694,8 +738,11 @@
       </section>
 
       <footer class="footer-note">
-        <span>© <span id="year"></span> JEM Design. Photography, video and digital media.</span>
-        <span>Based in the UK • Available for local shoots and selected travel.</span>
+        <span>&copy; <span id="year"></span> JEM Design. Photography, video and digital media.</span>
+        <span class="footer-links">
+          <span>Based in the UK &bull; Available for local shoots and selected travel.</span>
+          <a href="privacy-policy.html">Privacy policy</a>
+        </span>
       </footer>
     </div>
   </main>
