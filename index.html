@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JEM Design | Photography & Video Services</title>
+  <meta name="description" content="Premium photography and video services for brands, cars, properties and social-first content. Contact JEM Design today." />
+  <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <style>
+    :root {
+      --ink: #11100d;
+      --cream: #efe7d8;
+      --cream-2: #f8f2e8;
+      --muted: rgba(255, 250, 241, 0.76);
+      --line: rgba(255, 250, 241, 0.18);
+      --glass: rgba(14, 13, 10, 0.58);
+      --glass-soft: rgba(255, 250, 241, 0.10);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--cream-2);
+      background: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+    }
+
+    body::after {
+      z-index: 3;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(239, 231, 216, 0.16), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(239, 231, 216, 0.12), transparent 26%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.32));
+      mix-blend-mode: normal;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .background-slideshow {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      overflow: hidden;
+      background: #11100d;
+    }
+
+    .slide {
+      position: absolute;
+      inset: -18px;
+      opacity: 0;
+      transform: scale(1.04);
+      background-image:
+        linear-gradient(rgba(0,0,0,.16), rgba(0,0,0,.62)),
+        var(--slide-image);
+      background-position: center;
+      background-size: cover;
+      filter: blur(7px) saturate(0.88) contrast(1.06);
+      animation: fadeSlide 78s infinite;
+      animation-delay: var(--slide-delay, 0s);
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: scale(1.04); }
+      2% { opacity: 1; }
+      7% { opacity: 1; transform: scale(1.09); }
+      9% { opacity: 0; transform: scale(1.11); }
+      100% { opacity: 0; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 5;
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .shell {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      background: var(--cream);
+    }
+
+    .brand-title {
+      display: grid;
+      gap: 1px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-title span {
+      color: rgba(255, 250, 241, 0.64);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 250, 241, 0.22);
+      background: rgba(255, 250, 241, 0.10);
+      color: var(--cream-2);
+      font-weight: 750;
+      font-size: 0.92rem;
+      letter-spacing: -0.01em;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 250, 241, 0.16);
+      border-color: rgba(255, 250, 241, 0.34);
+    }
+
+    .btn-primary {
+      background: var(--cream-2);
+      color: var(--ink);
+      border-color: transparent;
+    }
+
+    .btn-primary:hover {
+      background: #fff8ea;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.74fr);
+      align-items: center;
+      gap: 34px;
+      min-height: calc(100vh - 118px);
+      padding: 38px 0 54px;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 250, 241, 0.16);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      color: rgba(255, 250, 241, 0.78);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cream-2);
+      box-shadow: 0 0 20px rgba(255, 250, 241, 0.88);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(3rem, 7.2vw, 6.8rem);
+      line-height: 0.88;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    h1 em {
+      display: block;
+      color: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 610px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      line-height: 1.72;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 680px;
+      margin-top: 34px;
+    }
+
+    .proof-card {
+      min-height: 94px;
+      padding: 18px;
+      border: 1px solid rgba(255, 250, 241, 0.14);
+      border-radius: 22px;
+      background: rgba(0, 0, 0, 0.24);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .proof-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cream-2);
+      font-size: 0.95rem;
+    }
+
+    .proof-card span {
+      color: rgba(255, 250, 241, 0.62);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255, 250, 241, 0.18);
+      border-radius: var(--radius);
+      background: linear-gradient(160deg, rgba(255, 250, 241, 0.16), rgba(255, 250, 241, 0.06));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
+
+    .contact-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px;
+      border-bottom: 1px solid rgba(255, 250, 241, 0.12);
+      background: rgba(0, 0, 0, 0.20);
+    }
+
+    .contact-head img {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      object-fit: cover;
+      background: var(--cream);
+    }
+
+    .contact-head h2 {
+      margin: 0 0 5px;
+      font-size: 1.15rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-head p {
+      margin: 0;
+      color: rgba(255, 250, 241, 0.68);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      color: rgba(255, 250, 241, 0.72);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 250, 241, 0.14);
+      border-radius: 17px;
+      outline: none;
+      background: rgba(0, 0, 0, 0.28);
+      color: var(--cream-2);
+      padding: 14px 15px;
+      font: inherit;
+      transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 250, 241, 0.38);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(255, 250, 241, 0.42);
+      background: rgba(0, 0, 0, 0.38);
+      box-shadow: 0 0 0 4px rgba(255, 250, 241, 0.08);
+    }
+
+    select {
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--cream-2) 50%), linear-gradient(135deg, var(--cream-2) 50%, transparent 50%);
+      background-position: calc(100% - 21px) 20px, calc(100% - 15px) 20px;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .submit-row {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+    }
+
+    .micro-copy {
+      margin: 0;
+      color: rgba(255, 250, 241, 0.52);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 250, 241, 0.14);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.18);
+      color: rgba(255, 250, 241, 0.70);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 26px;
+      color: rgba(255, 250, 241, 0.48);
+      font-size: 0.82rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 20;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--cream-2);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+      font-weight: 850;
+    }
+
+    @media (max-width: 920px) {
+      .page {
+        padding: 20px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      .header-actions .btn:not(.btn-primary) {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        align-items: start;
+        min-height: auto;
+        padding-top: 44px;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+      .proof-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 16px;
+      }
+
+      .brand-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+      }
+
+      .brand-title {
+        font-size: 0.78rem;
+      }
+
+      .brand-title span {
+        font-size: 0.56rem;
+      }
+
+      h1 {
+        font-size: clamp(2.55rem, 16vw, 4.4rem);
+      }
+
+      .hero-ctas,
+      .header-actions {
+        width: 100%;
+      }
+
+      .hero-ctas .btn,
+      .header-actions .btn,
+      .submit-row .btn {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-head {
+        align-items: flex-start;
+      }
+
+      .contact-head img {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+      }
+
+      .footer-note {
+        flex-direction: column;
+      }
+
+      .whatsapp-float {
+        left: 16px;
+        right: 16px;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+
+      .slide:first-child {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-slideshow" aria-hidden="true">
+    <div class="slide" style="--slide-image: url('assets/images/_ASC5699.jpg'); --slide-delay: 0s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/_ASC6147.jpg'); --slide-delay: 6s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/_ASC6202.jpg'); --slide-delay: 12s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_2889.jpg'); --slide-delay: 18s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_2943.jpg'); --slide-delay: 24s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_2109.jpg'); --slide-delay: 30s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_0808.JPG'); --slide-delay: 36s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_2539.jpg'); --slide-delay: 42s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_2717.jpg'); --slide-delay: 48s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_4352.jpg'); --slide-delay: 54s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_4360.jpg'); --slide-delay: 60s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_4861.jpg'); --slide-delay: 66s;"></div>
+    <div class="slide" style="--slide-image: url('assets/images/ASC_1280.JPG'); --slide-delay: 72s;"></div>
+  </div>
+
+  <main class="page">
+    <div class="shell">
+      <header>
+        <a class="brand" href="#top" aria-label="JEM Design home">
+          <img class="brand-logo" src="assets/jem-design-logo.png" alt="JEM Design logo" />
+          <span class="brand-title">JEM Design <span>Digital • Media</span></span>
+        </a>
+
+        <nav class="header-actions" aria-label="Contact options">
+          <a class="btn" href="#contact">Enquire now</a>
+          <a class="btn btn-primary" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20photography%20%2F%20video%20services." target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
+      </header>
+
+      <section id="top" class="hero" aria-label="JEM Design photography and video services">
+        <div class="hero-copy">
+          <div class="eyebrow">Photography • Video • Social Content</div>
+          <h1>Premium visuals for brands that need to look serious.<em>Fast.</em></h1>
+          <p class="intro">JEM Design creates clean, cinematic photo and video content for cars, properties, creators and growing businesses. Shoot planning, capture, editing and social-ready delivery handled in one simple service.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#contact">Get a quote</a>
+            <a class="btn" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20booking%20a%20shoot." target="_blank" rel="noopener">Message on WhatsApp</a>
+          </div>
+
+          <div class="services" aria-label="Services offered">
+            <span class="pill">Automotive shoots</span>
+            <span class="pill">Property visuals</span>
+            <span class="pill">Brand content</span>
+            <span class="pill">Reels & short-form edits</span>
+            <span class="pill">Drone-ready direction</span>
+          </div>
+
+          <div class="proof-row" aria-label="Service highlights">
+            <div class="proof-card">
+              <strong>Social-first</strong>
+              <span>Vertical content cut for Instagram, TikTok, websites and ads.</span>
+            </div>
+            <div class="proof-card">
+              <strong>Premium finish</strong>
+              <span>Clean composition, cinematic grading and sharp delivery.</span>
+            </div>
+            <div class="proof-card">
+              <strong>Simple process</strong>
+              <span>Brief, shoot, edit, deliver. No bloated production process.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside id="contact" class="contact-card" aria-label="Contact JEM Design">
+          <div class="contact-head">
+            <img src="assets/jem-design-logo.png" alt="JEM Design logo" />
+            <div>
+              <h2>Start your project</h2>
+              <p>Send a quick brief and JEM Design will come back with availability, pricing and the best shoot approach.</p>
+            </div>
+          </div>
+
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Do not fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="Best number" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Photography</option>
+                <option>Video shoot</option>
+                <option>Car content</option>
+                <option>Property / real estate visuals</option>
+                <option>Social media content package</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea id="message" name="message" placeholder="What do you need filmed or photographed? Include location, date and rough budget if known." required></textarea>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn btn-primary" type="submit">Send enquiry</button>
+              <p class="micro-copy">Prefer direct contact? Use the WhatsApp button for a faster reply.</p>
+            </div>
+          </form>
+        </aside>
+      </section>
+
+      <footer class="footer-note">
+        <span>© <span id="year"></span> JEM Design. Photography, video and digital media.</span>
+        <span>Based in the UK • Available for local shoots and selected travel.</span>
+      </footer>
+    </div>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener" aria-label="Message JEM Design on WhatsApp">WhatsApp</a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
