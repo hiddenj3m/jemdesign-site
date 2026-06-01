@@ -8,6 +8,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#11100d" />
   <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
       --ink: #11100d;
@@ -46,17 +47,16 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       margin-bottom: 56px;
       text-decoration: none;
     }
 
     .brand img {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      object-fit: cover;
-      background: var(--cream-2);
+      width: 87px;
+      height: 87px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
     }
 
     .brand strong {
@@ -126,6 +126,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 9px;
       min-height: 48px;
       padding: 0 18px;
       border: 1px solid rgba(255, 250, 241, 0.18);
@@ -134,11 +135,29 @@
       color: var(--cream-2);
       font-weight: 850;
       text-decoration: none;
+      transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 250, 241, 0.16);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
     }
 
     .btn-primary {
       background: var(--cream-2);
       color: var(--ink);
+    }
+
+    .fa-whatsapp {
+      color: #25d366;
+      font-size: 1.15em;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .btn:hover .fa-whatsapp {
+      transform: rotate(-8deg) scale(1.16);
+      filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.46));
     }
 
     @media (max-width: 560px) {
@@ -149,6 +168,11 @@
 
       .brand {
         margin-bottom: 36px;
+      }
+
+      .brand img {
+        width: 75px;
+        height: 75px;
       }
 
       article {
@@ -199,7 +223,7 @@
 
       <div class="actions">
         <a class="btn btn-primary" href="index.html">Back to home</a>
-        <a class="btn" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%20have%20a%20privacy%20question." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%20have%20a%20privacy%20question." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
       </div>
     </article>
   </main>

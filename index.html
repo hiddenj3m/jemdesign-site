@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="JEM Design | UK Photography, Video & Social Content" />
   <meta name="twitter:description" content="Premium UK photography, video shoots and social-first content for brands, creators and businesses." />
   <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -144,17 +145,15 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
 
     .brand-logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      object-fit: cover;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
-      background: var(--cream);
+      width: 87px;
+      height: 87px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
     }
 
     .brand-title {
@@ -196,13 +195,36 @@
       letter-spacing: -0.01em;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      box-shadow: 0 0 0 rgba(255, 250, 241, 0);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 250, 241, 0.28) 48%, transparent 58%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       background: rgba(255, 250, 241, 0.16);
       border-color: rgba(255, 250, 241, 0.34);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn:hover::before {
+      transform: translateX(120%);
+    }
+
+    .btn:active {
+      transform: translateY(0);
     }
 
     .btn-primary {
@@ -213,6 +235,20 @@
 
     .btn-primary:hover {
       background: #fff8ea;
+      box-shadow: 0 18px 44px rgba(248, 242, 232, 0.22);
+    }
+
+    .whatsapp-link .fa-whatsapp,
+    .whatsapp-float .fa-whatsapp {
+      color: #25d366;
+      font-size: 1.15em;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .whatsapp-link:hover .fa-whatsapp,
+    .whatsapp-float:hover .fa-whatsapp {
+      transform: rotate(-8deg) scale(1.16);
+      filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.46));
     }
 
     .hero {
@@ -341,11 +377,10 @@
     }
 
     .contact-head img {
-      width: 70px;
-      height: 70px;
-      border-radius: 22px;
-      object-fit: cover;
-      background: var(--cream);
+      width: 105px;
+      height: 105px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.26));
     }
 
     .contact-head h2 {
@@ -507,6 +542,13 @@
       gap: 9px;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
       font-weight: 850;
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: #fff8ea;
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.38);
     }
 
     @media (max-width: 920px) {
@@ -547,18 +589,17 @@
         padding: 16px;
       }
 
+      header {
+        align-items: center;
+      }
+
       .brand-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 16px;
+        width: 75px;
+        height: 75px;
       }
 
       .brand-title {
-        font-size: 0.78rem;
-      }
-
-      .brand-title span {
-        font-size: 0.56rem;
+        display: none;
       }
 
       h1 {
@@ -567,13 +608,16 @@
 
       .hero-ctas,
       .header-actions {
-        width: 100%;
+        width: auto;
       }
 
       .hero-ctas .btn,
-      .header-actions .btn,
       .submit-row .btn {
         width: 100%;
+      }
+
+      .header-actions .btn {
+        min-width: 218px;
       }
 
       .form-grid {
@@ -585,9 +629,8 @@
       }
 
       .contact-head img {
-        width: 58px;
-        height: 58px;
-        border-radius: 18px;
+        width: 78px;
+        height: 78px;
       }
 
       .footer-note {
@@ -641,19 +684,19 @@
 
         <nav class="header-actions" aria-label="Contact options">
           <a class="btn" href="#contact">Enquire now</a>
-          <a class="btn btn-primary" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20photography%20%2F%20video%20services." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primary whatsapp-link" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20photography%20%2F%20video%20services." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
         </nav>
       </header>
 
       <section id="top" class="hero" aria-label="JEM Design photography and video services">
         <div class="hero-copy">
           <div class="eyebrow">Photography • Video • Social Content</div>
-          <h1>Premium visuals for brands that need to look serious.<em>Fast.</em></h1>
-          <p class="intro">JEM Design creates clean, cinematic photo and video content for cars, properties, creators and growing businesses. Shoot planning, capture, editing and social-ready delivery handled in one simple service.</p>
+          <h1>Cinematic visuals for brands with presence.</h1>
+          <p class="intro">Premium photo and video production for cars, properties and ambitious brands. Shot with intention, edited with restraint, delivered ready to publish.</p>
 
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#contact">Get a quote</a>
-            <a class="btn" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20booking%20a%20shoot." target="_blank" rel="noopener">Message on WhatsApp</a>
+            <a class="btn whatsapp-link" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27m%20interested%20in%20booking%20a%20shoot." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
           </div>
 
           <div class="services" aria-label="Services offered">
@@ -747,7 +790,7 @@
     </div>
   </main>
 
-  <a class="whatsapp-float" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener" aria-label="Message JEM Design on WhatsApp">WhatsApp</a>
+  <a class="whatsapp-float" href="https://wa.me/447960629992?text=Hi%20JEM%20Design%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener" aria-label="Message JEM Design on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
