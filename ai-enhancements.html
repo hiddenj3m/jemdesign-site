@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Real Media + AI Enhancements | JEM Design</title>
+  <meta name="description" content="A JEM Design guide to mixing real photography and video with AI enhancements for more effective campaigns, content systems and creative workflows." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#11100d" />
+  <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --ink: #11100d;
+      --cream: #efe7d8;
+      --cream-2: #f8f2e8;
+      --muted: rgba(255, 250, 241, 0.76);
+      --line: rgba(255, 250, 241, 0.16);
+      --panel: rgba(14, 13, 10, 0.72);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--cream-2);
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.42)),
+        url("assets/images/DSC_4007.jpg") center / cover fixed,
+        var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 28px 0 54px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: clamp(30px, 5vw, 58px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand img {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
+    }
+
+    .brand-title {
+      display: grid;
+      gap: 1px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-title span {
+      color: rgba(255, 250, 241, 0.64);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 250, 241, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 241, 0.10);
+      color: var(--cream-2);
+      font-weight: 850;
+      transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 250, 241, 0.16);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn-primary {
+      background: var(--cream-2);
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.58fr);
+      gap: 28px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 250, 241, 0.16);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      color: rgba(255, 250, 241, 0.78);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(2.7rem, 6.4vw, 6.1rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      text-wrap: balance;
+    }
+
+    .intro {
+      max-width: 710px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.16rem);
+      line-height: 1.62;
+    }
+
+    .guide-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .guide-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.16rem;
+      letter-spacing: -0.02em;
+    }
+
+    .guide-card p {
+      margin: 0;
+      color: rgba(255, 250, 241, 0.68);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .tile {
+      min-height: 310px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.30);
+      backdrop-filter: blur(18px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.92) contrast(1.06);
+    }
+
+    .tile-content {
+      padding: 18px;
+    }
+
+    .tile strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .tile span {
+      display: block;
+      color: rgba(255, 250, 241, 0.66);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .step span {
+      color: rgba(255, 250, 241, 0.66);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+      color: rgba(255, 250, 241, 0.55);
+      font-size: 0.84rem;
+    }
+
+    footer a {
+      color: rgba(255, 250, 241, 0.78);
+      font-weight: 800;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .gallery,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 28px, 1160px);
+        padding-top: 20px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      .brand img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .brand-title {
+        display: none;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="index.html" aria-label="Back to JEM Design home">
+        <img src="assets/jem-design-logo.png" alt="JEM Design logo" />
+        <span class="brand-title">JEM Design <span>Digital &bull; Media</span></span>
+      </a>
+      <a class="btn" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to shoots</span></a>
+    </header>
+
+    <section class="hero" aria-label="Real content and AI enhancement guide">
+      <div>
+        <div class="eyebrow">Guide / Gallery</div>
+        <h1>real content + AI enhancements = real magic.</h1>
+        <p class="intro">AI works best when it has something honest to build from. Start with real photography, video, places and products, then use AI to extend the campaign, speed up variations and sharpen the story without losing trust.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="index.html#contact">Shoot the real source material</a>
+          <a class="btn" href="digital-marketing.html">Turn it into a campaign</a>
+        </div>
+      </div>
+
+      <aside class="guide-card">
+        <h2>The rule</h2>
+        <p>Use real media for credibility. Use AI for controlled expansion: alternative backgrounds, ad variations, moodboards, captions, storyboards, retouching direction and campaign planning.</p>
+      </aside>
+    </section>
+
+    <section class="gallery" aria-label="Ways to mix real media with AI">
+      <article class="tile">
+        <img src="assets/images/DSC_4035.jpg" alt="Car detail photography" />
+        <div class="tile-content">
+          <strong>Real product, enhanced context</strong>
+          <span>Capture the actual car, product or space first. AI can then help test campaign environments, seasonal ideas and creative directions while the subject stays authentic.</span>
+        </div>
+      </article>
+      <article class="tile">
+        <img src="assets/images/DSC_4007.jpg" alt="Automotive close-up photography" />
+        <div class="tile-content">
+          <strong>More uses from one shoot</strong>
+          <span>A single strong shoot can become website banners, paid ads, social posts, email visuals, thumbnails and reels with AI-assisted cropping, copy and format planning.</span>
+        </div>
+      </article>
+      <article class="tile">
+        <img src="assets/images/Boxing%20Gym%20Canvas%20Hero%20Image.png" alt="Boxing gym hero visual" />
+        <div class="tile-content">
+          <strong>Campaigns that still feel human</strong>
+          <span>AI can speed up ideas, but the customer still needs proof. Real photos make the work believable; AI helps turn that proof into a full campaign system.</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="steps" aria-label="AI enhancement workflow">
+      <div class="step">
+        <b>1. Shoot real assets</b>
+        <span>Products, vehicles, people, spaces and behind-the-scenes proof.</span>
+      </div>
+      <div class="step">
+        <b>2. Build the campaign story</b>
+        <span>Define offer, audience, format and the content jobs each asset needs to do.</span>
+      </div>
+      <div class="step">
+        <b>3. Enhance with AI</b>
+        <span>Create variants, prompts, layouts, edits and concepts without faking the core subject.</span>
+      </div>
+      <div class="step">
+        <b>4. Publish and learn</b>
+        <span>Use performance data to decide which visuals, hooks and formats deserve more investment.</span>
+      </div>
+    </section>
+
+    <footer>
+      <span>&copy; <span id="year"></span> JEM Design. Real media first.</span>
+      <span><a href="index.html#contact">Start with a shoot</a></span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

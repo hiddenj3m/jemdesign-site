@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo-Led Digital Marketing | JEM Design x JORA Solutions</title>
+  <meta name="description" content="Learn how JEM Design and JORA Solutions help businesses turn premium photography and video into digital marketing that attracts customers and increases revenue." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#11100d" />
+  <link rel="icon" type="image/png" href="assets/jem-design-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --ink: #11100d;
+      --cream: #efe7d8;
+      --cream-2: #f8f2e8;
+      --muted: rgba(255, 250, 241, 0.76);
+      --line: rgba(255, 250, 241, 0.16);
+      --panel: rgba(14, 13, 10, 0.72);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--cream-2);
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.42)),
+        url("assets/images/DSC_4035.jpg") center / cover fixed,
+        var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: clamp(34px, 6vw, 70px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand img {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
+    }
+
+    .brand-title {
+      display: grid;
+      gap: 1px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-title span {
+      color: rgba(255, 250, 241, 0.64);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 250, 241, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 241, 0.10);
+      color: var(--cream-2);
+      font-weight: 850;
+      transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 250, 241, 0.16);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn-primary {
+      background: var(--cream-2);
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 250, 241, 0.16);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      color: rgba(255, 250, 241, 0.78);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 6.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      text-wrap: balance;
+    }
+
+    .intro {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.16rem);
+      line-height: 1.62;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .partner-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .partner-logo {
+      display: grid;
+      place-items: center;
+      min-height: 128px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: var(--cream-2);
+    }
+
+    .partner-logo img {
+      width: min(210px, 80%);
+      height: auto;
+      display: block;
+    }
+
+    .partner-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      letter-spacing: -0.02em;
+    }
+
+    .partner-card p {
+      margin: 0;
+      color: rgba(255, 250, 241, 0.68);
+      line-height: 1.55;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .proof {
+      min-height: 150px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.30);
+      backdrop-filter: blur(18px);
+    }
+
+    .proof strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .proof span {
+      display: block;
+      color: rgba(255, 250, 241, 0.66);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 38px;
+      color: rgba(255, 250, 241, 0.55);
+      font-size: 0.84rem;
+    }
+
+    footer a {
+      color: rgba(255, 250, 241, 0.78);
+      font-weight: 800;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 28px, 1120px);
+        padding-top: 20px;
+      }
+
+      .brand img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .brand-title {
+        display: none;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="index.html" aria-label="Back to JEM Design home">
+        <img src="assets/jem-design-logo.png" alt="JEM Design logo" />
+        <span class="brand-title">JEM Design <span>Digital &bull; Media</span></span>
+      </a>
+      <a class="btn" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to shoots</span></a>
+    </header>
+
+    <section class="hero" aria-label="Photo-led digital marketing">
+      <div>
+        <div class="eyebrow">JEM Design x JORA Solutions</div>
+        <h1>Turn premium visuals into measurable revenue.</h1>
+        <p class="intro">Great photography gives your brand something real to show. Digital marketing turns that proof into traffic, enquiries, bookings and sales. JEM Design creates the content; JORA Solutions helps you put it to work.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://jora.solutions" target="_blank" rel="noopener">Visit JORA Solutions <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a class="btn" href="index.html#contact">Plan a content shoot</a>
+        </div>
+      </div>
+
+      <aside class="partner-card">
+        <div class="partner-logo">
+          <img src="assets/jora-logo-black.png" alt="JORA Solutions logo" />
+        </div>
+        <h2>Marketing partner</h2>
+        <p>JORA Solutions supports websites, campaigns and digital systems that help turn JEM Design content into commercial outcomes.</p>
+      </aside>
+    </section>
+
+    <section class="proof-grid" aria-label="Digital marketing benefits">
+      <div class="proof">
+        <strong>Build trust faster</strong>
+        <span>Real images of your work, space, products or team make your brand easier to believe and easier to buy from.</span>
+      </div>
+      <div class="proof">
+        <strong>Improve campaign performance</strong>
+        <span>Strong visuals give ads, landing pages and social campaigns a better chance of stopping attention and converting it.</span>
+      </div>
+      <div class="proof">
+        <strong>Create content that compounds</strong>
+        <span>A focused shoot can feed websites, ads, email, reels, case studies and sales material for months.</span>
+      </div>
+    </section>
+
+    <footer>
+      <span>&copy; <span id="year"></span> JEM Design. JORA Solutions partner.</span>
+      <span><a href="https://jora.solutions" target="_blank" rel="noopener">jora.solutions</a></span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
